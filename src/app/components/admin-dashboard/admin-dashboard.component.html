@@ -1,0 +1,94 @@
+
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Admin Dashboard</h2>
+
+  <hr />
+
+  <!-- Add Product Section -->
+  <section class="mb-5">
+    <h3 class="mb-4">Add Product</h3>
+
+    <form class="p-4 border rounded bg-light shadow">
+      <!-- Product Name -->
+      <div class="mb-3">
+        <label for="productName" class="form-label">Product Name:</label>
+        <input
+          id="productName"
+          [(ngModel)]="newProduct.name"
+          name="productName"
+          class="form-control"
+          placeholder="Enter product name"
+          required
+        />
+      </div>
+
+      <!-- Product Description -->
+      <div class="mb-3">
+        <label for="productDescription" class="form-label">Description:</label>
+        <textarea
+          id="productDescription"
+          [(ngModel)]="newProduct.description"
+          name="productDescription"
+          class="form-control"
+          rows="3"
+          placeholder="Enter product description"
+        ></textarea>
+      </div>
+
+      <!-- Product Price -->
+      <div class="mb-3">
+        <label for="productPrice" class="form-label">Price:</label>
+        <input
+          id="productPrice"
+          [(ngModel)]="newProduct.price"
+          name="productPrice"
+          class="form-control"
+          type="number"
+          placeholder="Enter product price"
+          required
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="btn btn-primary w-100"
+        (click)="addProduct()"
+      >
+        Add Product
+      </button>
+    </form>
+  </section>
+
+  <hr />
+
+  <!-- Customer List Section -->
+  <section class="mb-5">
+    <h3 class="mb-4">Customer Registrations</h3>
+    <ul class="list-group">
+      <li
+        *ngFor="let customers of customer"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <span>{{ customers.name }}</span>
+        <span>{{ customers.email }}</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Order List Section -->
+  <section>
+    <h3 class="mb-4">Order List (Sorted)</h3>
+    <ul class="list-group">
+      <li
+        *ngFor="let order of orders"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <span>{{ order.id }}</span>
+        <span>{{ order.customerName }}</span>
+        <span>{{ order.totalAmount | currency }}</span>
+        <span>{{ order.orderDate }}</span>
+      </li>
+    </ul>
+  </section>
+</div>

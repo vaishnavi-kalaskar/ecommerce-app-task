@@ -1,0 +1,66 @@
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <!-- Card for Registration -->
+      <div class="card shadow border-0">
+        <div class="card-header bg-primary text-white text-center">
+          <h2 class="mb-0">Customer Registration</h2>
+        </div>
+        <div class="card-body p-4">
+          <!-- Registration Form -->
+          <form (ngSubmit)="registerCustomer()">
+            <!-- Name -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                id="name"
+                [(ngModel)]="customer.name"
+                name="name"
+                class="form-control"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                id="email"
+                [(ngModel)]="customer.email"
+                name="email"
+                class="form-control"
+                type="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                id="password"
+                type="password"
+                [(ngModel)]="customer.password"
+                name="password"
+                class="form-control"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <!-- Register Button -->
+            <button
+              type="submit"
+              class="btn btn-primary w-100 fw-bold"
+            >
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
